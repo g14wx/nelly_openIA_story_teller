@@ -1,4 +1,3 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
@@ -67,7 +66,7 @@ class HomeScreen extends HookConsumerWidget {
                 }
                 ref.read(speechToTextProviderProvider.notifier).changeLanguageRecognition(languages: indexLanguageRecognition.value == 1 ? ["en-US", "en-SV"] : indexLanguageRecognition.value == 2 ? ["es-ES", "es-SV", "es-US"] : []);
               },
-              child: Text(indexLanguageRecognition.value == 1 ? "🇺🇸" : indexLanguageRecognition.value == 2 ? "🇪🇸" : "🏳️", style: TextStyle(fontSize: 35)),
+              child: Text(indexLanguageRecognition.value == 1 ? "🇺🇸" : indexLanguageRecognition.value == 2 ? "🇪🇸" : "🏳️", style: const TextStyle(fontSize: 35)),
             ),
           ),
 
@@ -203,7 +202,9 @@ class HomeScreen extends HookConsumerWidget {
                           mainAxisSize: MainAxisSize.min,
                           children: [
                             Flexible(child: Image.network(speechToTextProvider.successResponseFromOpenIA, loadingBuilder: (context, child, loadingProgress) {
-                              print(loadingProgress?.cumulativeBytesLoaded);
+                              if (kDebugMode) {
+                                print(loadingProgress?.cumulativeBytesLoaded);
+                              }
                               if (loadingProgress != null) {
                                 return const Center(child: CircularProgressIndicator());
                               }
