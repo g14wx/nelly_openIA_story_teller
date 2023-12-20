@@ -100,7 +100,9 @@ class SpeechToTextProvider extends _$SpeechToTextProvider {
       switch (state.selectedOpenIAMode) {
         case OpenIAModes.chat:
           state = state.copyWith(
-              successResponseFromOpenIA: utf8.decode(responseApi["choices"][0]["message"]["content"].toString().codeUnits), isLoadingRequestFromOpenIAApi: false, recordedAudioString: "");
+              successResponseFromOpenIA: utf8.decode(responseApi["choices"][0]["text"].toString().codeUnits), isLoadingRequestFromOpenIAApi: false, recordedAudioString: "");
+          /*state = state.copyWith(
+              successResponseFromOpenIA: utf8.decode(responseApi["choices"][0]["message"]["content"].toString().codeUnits), isLoadingRequestFromOpenIAApi: false, recordedAudioString: "");*/
           _tts.speak(state.successResponseFromOpenIA);
         case OpenIAModes.image:
           state = state.copyWith(successResponseFromOpenIA: responseApi["data"][0]["url"], isLoadingRequestFromOpenIAApi: false, recordedAudioString: "");
