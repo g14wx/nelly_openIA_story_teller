@@ -26,7 +26,15 @@
 	<string>$(PRODUCT_COPYRIGHT)</string>
 	<key>NSMainNibFile</key>
 	<string>MainMenu</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>We need this permissions to you to be able to speak and understand your commands</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>This is to add a new image to the photo library</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>This is to add a new image to the photo library</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
+	<key>NSSpeechRecognitionUsageDescription</key>
+	<string>Speech recognition is used to speak to the app (we don't collect your voice or any content that you can say to the app)</string>
 </dict>
 </plist>
